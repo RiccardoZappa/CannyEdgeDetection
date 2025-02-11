@@ -1,1 +1,1 @@
-# DeepLearning
+# Canny Edge Detection Algorithm
