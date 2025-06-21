@@ -11,7 +11,9 @@ set(CMAKE_CUDA_STANDARD_REQUIRED ON)
 # --- Find Dependencies ---
 find_package(OpenCV REQUIRED)
 find_package(Protobuf REQUIRED)
+find_package(GTest REQUIRED)
 
+enable_testing()
 
 # --- Project Sources and Executable ---
 add_executable(my_project
@@ -22,7 +24,7 @@ add_executable(my_project
 # --- Linking Libraries ---
 target_link_libraries(my_project PRIVATE
     ${OpenCV_LIBS}
-    ${GTest_Libraries}
+    GTest::gtest_main
 )
 
 
