@@ -6,6 +6,13 @@ class Tensor
     public:
         Tensor() : m_data(calculateSize());
 
+        explicit Tensor(T initialValue) : m_data(calculateSize(), initialValue) {}
+
+        static constexpr size_t size()
+        {
+            return calculateSize();
+        }
+
     private:
 
         static constexpr size_t calculateSize()
@@ -13,5 +20,5 @@ class Tensor
             return (Dims * ... * 1);
         }
 
-        std::unique_ptr<std::vector<T>> m_data;
+        std::vector<T> m_data;
 };
