@@ -39,5 +39,10 @@ set_target_properties(my_project PROPERTIES
     CUDA_ARCHITECTURES "75" # Specify your target GPU architecture(s)
 )
 
-include(GoogleTest)
-gtest_discover_tests(runUnitTests)
+set(TEST_EXECUTABLE $<TARGET_FILE:runUnitTests>)
+
+gtest_discover_tests(
+    runUnitTests
+    TEST_PREFIX "Test"
+    TEST_LAUNCH_COMMAND ${TEST_EXECUTABLE}
+)
