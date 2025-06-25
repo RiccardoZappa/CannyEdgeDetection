@@ -18,12 +18,18 @@ enable_testing()
 # --- Project Sources and Executable ---
 add_executable(my_project
     src/main.cpp
+)
+
+add_executable(runUnitTests
     test/test.cpp
 )
 
 # --- Linking Libraries ---
 target_link_libraries(my_project PRIVATE
     ${OpenCV_LIBS}
+)
+
+target_link_libraries(runUnitTests PRIVATE
     GTest::gtest_main
 )
 
@@ -33,7 +39,5 @@ set_target_properties(my_project PROPERTIES
     CUDA_ARCHITECTURES "75" # Specify your target GPU architecture(s)
 )
 
-add_test(
-    NAME my_project
-    COMMAND runUnitTests
-)
+include(GoogleTest)
+gtest_discover_tests(runUnitTests)
