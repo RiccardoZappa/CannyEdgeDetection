@@ -32,3 +32,8 @@ target_link_libraries(my_project PRIVATE
 set_target_properties(my_project PROPERTIES
     CUDA_ARCHITECTURES "75" # Specify your target GPU architecture(s)
 )
+
+add_test(
+    NAME my_project
+    COMMAND runUnitTests
+)
