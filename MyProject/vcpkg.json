@@ -1,7 +1,0 @@
-{
-  "dependencies": [
-    "opencv",
-    "protobuf",
-    "gtest"
-  ]
-}
